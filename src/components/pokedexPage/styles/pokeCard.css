@@ -1,0 +1,106 @@
+.poke-card
+{
+    background-color: gray;
+    border: 5px solid;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 25px;
+    cursor: pointer;
+    gap: 5px;
+    position: relative;
+}
+.poke-card:hover
+{
+    transform: scale(1.05);
+}
+.poke-card div{
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    border-radius: 20px 20px 0 0;
+}
+.poke-card figure
+{
+    width: 150px;
+    position: relative;
+    z-index: 10;
+}
+.poke-type
+{
+    display: flex;
+    gap: 5px;
+
+}
+.poke-card hr
+{
+    width: 85%;
+}
+.poke-stats
+{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    padding: 15px;
+    width: 85%;
+    gap: 10px;
+}
+.poke-stats li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.slot2::before
+{
+    content: '/ ';
+}
+/* Colores de fondo dinamicos para alas cards */
+.grass
+{
+    background-color: green;
+}
+.fire
+{
+    background-color: rgb(255, 102, 0);
+}
+.water
+{
+    background-color: blue;
+}
+.bug
+{
+    background-color: rgb(97, 62, 36);
+}
+.normal
+{
+    background-color: rgb(197, 191, 139);
+}
+.electric
+{
+    background-color: rgb(255, 230, 7);
+}
+.ground
+{
+    background-color: rgb(0, 0, 0);
+}
+.poison
+{
+    background-color: rgb(48, 255, 7);
+}
+.ghost
+{
+    background-color: rgb(135, 7, 255);
+}
+.water
+{
+    background-color: rgb(7, 164, 255);
+}
+.dragon
+{
+    background-color: rgb(243, 8, 8);
+}
+.psychic
+{
+    background-color: rgb(255, 7, 172);
+}
