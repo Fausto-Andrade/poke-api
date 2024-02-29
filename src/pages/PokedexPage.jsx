@@ -6,6 +6,7 @@ import useFetch from '../hooks/useFetch';
 import PokeCard from '../components/pokedexPage/PokeCard';
 import SelectType from '../components/pokedexPage/SelectType';
 import './styles/pokedexPages.css';
+import Pagination from '../components/pokedexPage/Pagination';
 
 const PokedexPage = () => {
 
@@ -14,6 +15,7 @@ const PokedexPage = () => {
   const pokemonName = useSelector(store => store.pokemonName);
   const dispatch = useDispatch();
   const [pokemons, getPokemons, getPerType] = useFetch();
+  const [countPage, setCountPage] = useState(2);
 
   useEffect(() => {
     if (selectValue === 'allPokemons') {
@@ -40,6 +42,14 @@ const PokedexPage = () => {
       return pokemons?.results;
     }
   }
+  
+  const quantity = 6;
+  const total = cbFilter()?.length / quantity;
+  const pagination = () => {
+    const end = quantity * countPage;
+    const start = end - quantity;
+    return cbFilter()?.slice(start, end);
+  }
 
   return (
     <div className='pokedex'>
@@ -57,7 +67,7 @@ const PokedexPage = () => {
       </section>
       <section className='poke-container'>
         {
-          cbFilter()?.map(poke => (
+          pagination()?.map(poke => (
             <PokeCard 
               key={poke.url}
               url={poke.url}
@@ -65,6 +75,11 @@ const PokedexPage = () => {
           ))
         }
       </section>
+      <Pagination 
+        setCountPage= {setCountPage}
+        countPage={countPage}
+        total= {total}
+      />
     </div>
   )
 }
